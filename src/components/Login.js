@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate  } from 'react-router-dom';
 
 function Login({ email, password, setLoggedIn, setNavigate }) {
-
+    const navigate = useNavigate ()
     const [emailval, setemailval] = useState("");
     const [passval, setpassval] = useState("");
     const handleSubmit = (e) => {
@@ -10,7 +10,9 @@ function Login({ email, password, setLoggedIn, setNavigate }) {
 
         if (emailval == email && passval == password && emailval) {
             setLoggedIn(true)
+            navigate("/dashboard")
         }
+        
 
     }
     return (
